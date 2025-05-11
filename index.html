@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoja de Vida - George A. Rojas</title>
+  <title>Resume - George A. Rojas</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
     header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
     section { padding: 20px; max-width: 800px; margin: auto; background: white; margin-bottom: 20px; }
     h2 { color: #2c3e50; }
-    .galeria { display: flex; flex-wrap: wrap; gap: 10px; }
-    .galeria img { width: 150px; height: auto; cursor: pointer; border: 2px solid #ccc; border-radius: 5px; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 10px; }
+    .gallery img { width: 150px; height: auto; cursor: pointer; border: 2px solid #ccc; border-radius: 5px; }
     .modal-album { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; flex-direction: column; }
     .modal-album.active { display: flex; }
     .modal-album img { max-width: 90%; max-height: 80%; margin-bottom: 20px; transition: opacity 0.3s ease; }
@@ -23,43 +23,43 @@
 
 <header>
   <h1>George A. Rojas</h1>
-  <p>Técnico electricista residencial</p>
-  <p>Email: <a href="mailto:ginokapone@gmail.com" style="color: white;">ginokapone@gmail.com</a> | Tel: 857-398-7029</p>
+  <p>Residential Electrical Technician</p>
+  <p>Email: <a href="mailto:ginokapone@gmail.com" style="color: white;">ginokapone@gmail.com</a> | Phone: 857-398-7029</p>
 </header>
 
 <section>
-  <h2>Experiencia Laboral en República Dominicana</h2>
+  <h2>Work Experience in the Dominican Republic</h2>
   <p><strong>Universidad Tecnológica de Santiago (UTESA)</strong></p>
-  <p>Encargado del mantenimiento preventivo y reparaciones del área eléctrica por 5 años.</p>
-  <p>Teléfono: 809-788-0903 | Email: <a href="mailto:sdoriental@utesa.edu">sdoriental@utesa.edu</a> | <a href="https://utesa.edu/santo-domingo-oriental/#" target="_blank">Sitio web</a></p>
+  <p>Responsible for preventive maintenance and electrical repairs for 5 years.</p>
+  <p>Phone: 809-788-0903 | Email: <a href="mailto:sdoriental@utesa.edu">sdoriental@utesa.edu</a> | <a href="https://utesa.edu/santo-domingo-oriental/#" target="_blank">Website</a></p>
 </section>
 
 <section>
-  <h2>Experiencia Laboral en Estados Unidos</h2>
-  <p>Realización de instalaciones eléctricas completas en nuevas construcciones, incluyendo el alambrado de salones, pasillos y la instalación del panel de distribución.</p>
-  <p>Además, prestaba servicios de mantenimiento y reparación eléctrica en diversas edificaciones.</p>
+  <h2>Work Experience in the United States</h2>
+  <p>Performed complete electrical installations in new constructions, including wiring classrooms and hallways, and installing distribution panels.</p>
+  <p>Also provided electrical service and repair in various buildings.</p>
 </section>
 
 <section>
-  <h2>Galería de Trabajos</h2>
-  <div class="galeria">
-    <img src="img/IMG_20250507_153258.jpg" alt="Trabajo 1" onclick="openAlbum(0)">
-    
-    <!-- Agrega más imágenes según necesites -->
+  <h2>Project Gallery</h2>
+  <div class="gallery">
+    <img src="img/IMG_20250507_153258.jpg" alt="Project 1" onclick="openAlbum(0)">
+    <img src="img/foto2.jpg" alt="Project 2" onclick="openAlbum(1)">
+    <!-- Add more images as needed -->
   </div>
 </section>
 
 <div class="modal-album" id="albumModal">
-  <img id="albumImage" src="" alt="Imagen del trabajo">
+  <img id="albumImage" src="" alt="Project image">
   <div class="controls">
-    <button onclick="prevImage()">Anterior</button>
-    <button onclick="nextImage()">Siguiente</button>
-    <button onclick="closeAlbum()">Cerrar</button>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+    <button onclick="closeAlbum()">Close</button>
   </div>
 </div>
 
 <footer>
-  <p>Referencias disponibles a solicitud</p>
+  <p>References available upon request</p>
 </footer>
 
 <script>
@@ -98,5 +98,3 @@
 
 </body>
 </html>
-
-
