@@ -13,7 +13,7 @@
     .galeria img { width: 150px; height: auto; cursor: pointer; border: 2px solid #ccc; border-radius: 5px; }
     .modal-album { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; flex-direction: column; }
     .modal-album.active { display: flex; }
-    .modal-album img { max-width: 90%; max-height: 80%; margin-bottom: 20px; }
+    .modal-album img { max-width: 90%; max-height: 80%; margin-bottom: 20px; transition: opacity 0.3s ease; }
     .controls { display: flex; gap: 20px; }
     .controls button { padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; background: #3498db; color: white; border-radius: 5px; }
     footer { text-align: center; padding: 10px; background: #2c3e50; color: white; }
@@ -36,15 +36,15 @@
 
 <section>
   <h2>Experiencia Laboral en Estados Unidos</h2>
-  <p><strong></strong></p>
-  <p></p>
+  <p>Realización de instalaciones eléctricas completas en nuevas construcciones, incluyendo el alambrado de salones, pasillos y la instalación del panel de distribución.</p>
+  <p>Además, prestaba servicios de mantenimiento y reparación eléctrica en diversas edificaciones.</p>
 </section>
 
 <section>
   <h2>Galería de Trabajos</h2>
   <div class="galeria">
     <img src="img/IMG_20250507_153258.jpg" alt="Trabajo 1" onclick="openAlbum(0)">
-    
+    <img src="img/foto2.jpg" alt="Trabajo 2" onclick="openAlbum(1)">
     <!-- Agrega más imágenes según necesites -->
   </div>
 </section>
@@ -63,7 +63,7 @@
 </footer>
 
 <script>
-  const images = ["img/IMG_20250507_153258.jpg", "img/IMG_20250507_153302.jpg", "img/IMG_20250507_153306.jpg", "img/IMG_20250507_153308.jpg", "img/IMG_20250507_153324.jpg", "img/IMG_20250507_153329.jpg", "img/IMG_20250507_153350.heic", "img/IMG_20250507_153426.jpg", "img/IMG_20250507_153428.jpg", "img/IMG_20250507_153445.jpg", "img/IMG_20250507_153505.jpg", "img/IMG_20250507_153507.jpg", "img/IMG_20250507_153628.jpg", "img/IMG_20250507_153630.jpg", "img/IMG_20250507_153636.jpg", "img/IMG_20250507_153852.heic", "img/IMG_20250507_153856.heic", "img/IMG_20250507_153913.heic"];
+  const images = ["img/IMG_20250507_153258.jpg", "img/foto2.jpg"];
   let currentImage = 0;
 
   function openAlbum(index) {
@@ -76,17 +76,27 @@
     document.getElementById("albumModal").classList.remove("active");
   }
 
+  function changeImage(index) {
+    const albumImage = document.getElementById("albumImage");
+    albumImage.style.opacity = 0;
+    setTimeout(() => {
+      albumImage.src = images[index];
+      albumImage.style.opacity = 1;
+    }, 300);
+  }
+
   function nextImage() {
     currentImage = (currentImage + 1) % images.length;
-    document.getElementById("albumImage").src = images[currentImage];
+    changeImage(currentImage);
   }
 
   function prevImage() {
     currentImage = (currentImage - 1 + images.length) % images.length;
-    document.getElementById("albumImage").src = images[currentImage];
+    changeImage(currentImage);
   }
 </script>
 
 </body>
 </html>
+
 
