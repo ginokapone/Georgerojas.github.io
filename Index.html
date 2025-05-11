@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Vida - George A. Rojas</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+    section { padding: 20px; max-width: 800px; margin: auto; background: white; margin-bottom: 20px; }
+    h2 { color: #2c3e50; }
+    .galeria { display: flex; flex-wrap: wrap; gap: 10px; }
+    .galeria img { width: 150px; height: auto; cursor: pointer; border: 2px solid #ccc; border-radius: 5px; }
+    .modal-album { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; flex-direction: column; }
+    .modal-album.active { display: flex; }
+    .modal-album img { max-width: 90%; max-height: 80%; margin-bottom: 20px; }
+    .controls { display: flex; gap: 20px; }
+    .controls button { padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; background: #3498db; color: white; border-radius: 5px; }
+    footer { text-align: center; padding: 10px; background: #2c3e50; color: white; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>George A. Rojas</h1>
+  <p>Técnico electricista residencial</p>
+  <p>Email: <a href="mailto:ginokapone@gmail.com" style="color: white;">ginokapone@gmail.com</a> | Tel: 857-398-7029</p>
+</header>
+
+<section>
+  <h2>Experiencia Laboral en República Dominicana</h2>
+  <p><strong>Universidad Tecnológica de Santiago (UTESA)</strong></p>
+  <p>Encargado del mantenimiento preventivo y reparaciones del área eléctrica por 5 años.</p>
+  <p>Teléfono: 809-788-0903 | Email: <a href="mailto:sdoriental@utesa.edu">sdoriental@utesa.edu</a> | <a href="https://utesa.edu/santo-domingo-oriental/#" target="_blank">Sitio web</a></p>
+</section>
+
+<section>
+  <h2>Experiencia Laboral en Estados Unidos</h2>
+  <p><strong>Homelights Boston</strong></p>
+  <p>Teléfono: (617) 947-2129 | <a href="http://homelightboston.com/" target="_blank">Sitio web</a></p>
+</section>
+
+<section>
+  <h2>Galería de Trabajos</h2>
+  <div class="galeria">
+    <img src="img/IMG_20250507_153258.jpg" alt="Trabajo 1" onclick="openAlbum(0)">
+    <img src="foto2.jpg" alt="Trabajo 2" onclick="openAlbum(1)">
+    <!-- Agrega más imágenes según necesites -->
+  </div>
+</section>
+
+<div class="modal-album" id="albumModal">
+  <img id="albumImage" src="" alt="Imagen del trabajo">
+  <div class="controls">
+    <button onclick="prevImage()">Anterior</button>
+    <button onclick="nextImage()">Siguiente</button>
+    <button onclick="closeAlbum()">Cerrar</button>
+  </div>
+</div>
+
+<footer>
+  <p>Referencias disponibles a solicitud</p>
+</footer>
+
+<script>
+  const images = ["img/IMG_20250507_153258.jpg", "img/IMG_20250507_153302.jpg", "img/IMG_20250507_153306.jpg", "img/IMG_20250507_153308.jpg", "img/IMG_20250507_153324.jpg", "img/IMG_20250507_153329.jpg", "img/IMG_20250507_153350.heic", "img/IMG_20250507_153426.jpg", "img/IMG_20250507_153428.jpg", "img/IMG_20250507_153445.jpg", "img/IMG_20250507_153505.jpg", "img/IMG_20250507_153507.jpg", "img/IMG_20250507_153628.jpg", "img/IMG_20250507_153630.jpg", "img/IMG_20250507_153636.jpg", "img/IMG_20250507_153852.heic", "img/IMG_20250507_153856.heic", "img/IMG_20250507_153913.heic"];
+  let currentImage = 0;
+
+  function openAlbum(index) {
+    currentImage = index;
+    document.getElementById("albumImage").src = images[currentImage];
+    document.getElementById("albumModal").classList.add("active");
+  }
+
+  function closeAlbum() {
+    document.getElementById("albumModal").classList.remove("active");
+  }
+
+  function nextImage() {
+    currentImage = (currentImage + 1) % images.length;
+    document.getElementById("albumImage").src = images[currentImage];
+  }
+
+  function prevImage() {
+    currentImage = (currentImage - 1 + images.length) % images.length;
+    document.getElementById("albumImage").src = images[currentImage];
+  }
+</script>
+
+</body>
+</html>
